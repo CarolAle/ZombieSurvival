@@ -1,2 +1,2 @@
 # ZombieSurvival
-Zombie Survival Social Network - Frontend
+Zombie Survival Social Network - Frontend using Vue, Axios e Bulma
