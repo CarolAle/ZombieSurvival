@@ -1,25 +1,38 @@
 <template>
-  <div class="container">
-    <div class="col-md-8 col-sm-offset-2">
-      <div id="list-users" v-if="users && users.length">
-        <div class="panel panel-default" v-for="user of users">
-          <div class="panel-heading">
-            <span>{{user.name}}</span>
+  <div class="row">
+    <input class="input" type="text" v-model="search" placeholder='Search...'/>
+  <div class="todo" v-if="usersFilter && usersFilter.length">
+    <div class="car" v-for="user of usersFilter">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">{{ user.name }}</p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <p>Age: {{ user.age }}</p>
+            <p>{{ user.gender }}</p>
+            <!-- <p>{{ user.infected + '?' }}</p>  -->
+
           </div>
-            <div class="row">
-              <div>Capital: <strong>{{user.age}}</strong></div>
-              <div>Region: <strong>{{user.gender}}</strong></div>
-            </div> 
+        </div>
+        <div class="card-footer">
+          <router-link class="card-footer-item" to="#">info</router-link></a>
+          <router-link class="card-footer-item" to="#">inventory</router-link></a>
+          <router-link class="card-footer-item" to="#">olaa</router-link></a>
         </div>
       </div>
-      <div class="text-center" v-else>
+    </div>
+  </div>
+  <div class="text-center" v-else>
         No results!
       </div>
-    </div>
-  </div>  
+  </div>
+  
 </template>
 
 <script>
+
+
 	import axios from "axios";
 
 	export default {
@@ -27,16 +40,24 @@
 		name: 'survivor',
 		data () {
 			return {
+        search: "",
 				users: []
 			}
 		},
-		mounted() {
+    computed: {
+      usersFilter: function() {
+        var search = this.search;
+        return this.users.filter(function(el) {
+          return el.name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+        });
+      }
+    },
+		created() {
 			axios({method: "GET", "url": "http://zssn-backend-example.herokuapp.com/api/people"}).then(result => {
 				this.users = result.data;
 			}, error => {
 				console.error(error);
 			});
 		}
-
 	}
 </script>

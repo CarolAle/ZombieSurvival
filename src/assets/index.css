@@ -1,12 +1,29 @@
   .container {
-    max-width: 600px;
+  	height: 100px !important;
+  	height: 100px !important;
     margin: 20px !important;
     padding: 20px 30px;
-    background: #f9f7f5;
+    background: #00c4a7;
   }
 
-  .hero {
-  	margin: 10px;
+  .row {
+  	margin: 30px;
   }
+
+  .navbar {
+  	margin: 20px !important;
+  	background: #993300;
+  }
+
+.button.is-light {
+	margin: 20px;
+}
+
+.car {
+	float: left;
+	width: 300px;
+	margin: 5px;
+}
+
 
 

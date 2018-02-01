@@ -1,6 +1,6 @@
 <template>
-	<div class="container">
-		<p>ola</p>
+	<div class="container is-fluid">
+		<p>Welcome to a ZSSN</p>
 	</div>
     </template>
 </template>

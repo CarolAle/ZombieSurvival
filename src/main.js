@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Hello from './components/Hello.vue'
+import Survivor from './components/Survivor.vue'
 import TodoCard from './components/TodoCard.vue'
 import Home from './components/Home.vue'
 import Main from './layouts/Main.vue'
@@ -11,8 +11,8 @@ const router = new VueRouter({
 	mode: 'history',
   routes: [
     { path: '/', component: Home },
-    { path: '/hello', component: Hello },
-    { path: '/survivo', component: TodoCard },
+    { path: '/register', component: Survivor },
+    { path: '/survivos', component: TodoCard },
   ]
 })
 
